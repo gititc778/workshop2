@@ -1,0 +1,16 @@
+@model TireShopWeb.Models.Tire
+
+<h2>Add Tire</h2>
+
+<form method="post">
+    <input asp-for="Brand" placeholder="Brand" /><br />
+    <input asp-for="Size" placeholder="Size" /><br />
+    <input asp-for="Price" placeholder="Price" /><br />
+
+    <button type="submit">Save</button>
+</form>
+
+@foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+    <p style="color:red">@error.ErrorMessage</p>
+}

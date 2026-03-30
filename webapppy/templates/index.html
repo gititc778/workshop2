@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="card card-custom p-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Tires Inventory</h3>
+        <a href="/add" class="btn btn-primary">+ Add Tire</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Brand</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t in tires %}
+            <tr>
+                <td>{{ t.brand }}</td>
+                <td>{{ t.size }}</td>
+                <td>${{ t.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

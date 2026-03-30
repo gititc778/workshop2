@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="card card-custom p-4 col-md-6 mx-auto">
+    <h3>Add Tire</h3>
+
+    <form method="post">
+        <div class="mb-3">
+            <input name="brand" class="form-control" placeholder="Brand">
+        </div>
+        <div class="mb-3">
+            <input name="size" class="form-control" placeholder="Size">
+        </div>
+        <div class="mb-3">
+            <input name="price" class="form-control" placeholder="Price">
+        </div>
+        <button class="btn btn-success w-100">Save</button>
+    </form>
+</div>
+{% endblock %}

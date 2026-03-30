@@ -1,0 +1,17 @@
+@model List<TireShopWeb.Models.Tire>
+
+<h2>Tire List</h2>
+<a href="/Tire/Create">Add Tire</a>
+
+<table border="1">
+<tr><th>Brand</th><th>Size</th><th>Price</th></tr>
+
+@foreach (var t in Model)
+{
+<tr>
+<td>@t.Brand</td>
+<td>@t.Size</td>
+<td>@t.Price</td>
+</tr>
+}
+</table>
