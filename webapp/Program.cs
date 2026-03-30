@@ -33,4 +33,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Tire}/{action=Index}/{id?}");
 
+
+app.Urls.Clear();
+app.Urls.Add("http://0.0.0.0:5000");
+
+
 app.Run();
