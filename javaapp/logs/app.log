@@ -1,0 +1,13 @@
+2026-03-30T15:10:34.395Z  INFO 1 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication v1.0.0 using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-30T15:10:34.407Z  INFO 1 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-03-30T15:10:35.982Z  INFO 1 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-30T15:10:35.999Z  INFO 1 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-30T15:10:36.000Z  INFO 1 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-30T15:10:36.086Z  INFO 1 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-30T15:10:36.087Z  INFO 1 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1572 ms
+2026-03-30T15:10:36.713Z  INFO 1 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-03-30T15:10:36.811Z  INFO 1 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-30T15:10:36.829Z  INFO 1 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.966 seconds (process running for 3.44)
+2026-03-30T15:10:43.131Z  INFO 1 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30T15:10:43.131Z  INFO 1 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-30T15:10:43.135Z  INFO 1 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
