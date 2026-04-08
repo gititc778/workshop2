@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: probe-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: probe-demo
+  template:
+    metadata:
+      labels:
+        app: probe-demo
+    spec:
+      containers:
+      - name: probe-app
+        image: dockeritc778/pythonhealth
+        ports:
+        - containerPort: 8080
+
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+        - name: secret-volume
+          mountPath: /app/secret
+
+        resources:
+          requests:
+            cpu: "50m"             
+            memory: "64Mi"         
+          limits:
+            cpu: "100m"           
+            memory: "128Mi"        
+
+        startupProbe:
+          httpGet:
+            path: /readiness
+            port: 8080
+
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 2
+          timeoutSeconds: 2
+          failureThreshold: 3
+          successThreshold: 1
+
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 3
+          successThreshold: 1
+
+      volumes:
+      - name: config-volume
+        configMap:        # ConfigMap
+          name: demo-config
+      - name: secret-volume
+        secret:           # Secret
+          secretName: demo-secret

@@ -1,0 +1,46 @@
+apiVersion: apps/v1                 # Deployment API version
+kind: Deployment                   # Resource type
+metadata:
+  name: probe-demo                 # Name of the deployment
+spec:
+  replicas: 1                      # Number of pod replicas
+  selector:
+    matchLabels:
+      app: probe-demo              # Must match pod labels
+  template:
+    metadata:
+      labels:
+        app: probe-demo            # Label applied to pods
+    spec:
+      containers:
+      - name: probe-app            # Container name
+        image: dockeritc778/pythonhealth  # Docker image (Docker Hub)        
+        ports:
+        - containerPort: 8080      # App listens on port 8080
+
+        startupProbe:
+          httpGet:
+            path: /readiness       # Use readiness endpoint for startup
+            port: 8080             # Port to call
+
+        livenessProbe:
+          httpGet:
+            path: /liveness        # Endpoint to check if app is alive
+            port: 8080             # Port to call
+          
+          initialDelaySeconds: 5   # Wait before first check
+          periodSeconds: 2        # Check every 10 sec
+          timeoutSeconds: 2        # Fail if no response in 2 sec
+          failureThreshold: 3      # Restart container after 3 failures
+          successThreshold: 1      # 1 success is enough to mark healthy
+   
+        readinessProbe:
+          httpGet:
+            path: /readiness       # Endpoint to check if app is ready
+            port: 8080             # Port to call
+          
+          initialDelaySeconds: 5   # Wait before first check
+          periodSeconds: 5         # Check every 5 sec
+          timeoutSeconds: 2        # Fail if no response in 2 sec
+          failureThreshold: 3      # Mark pod unready after 3 failures
+          successThreshold: 1      # 1 success to become ready
