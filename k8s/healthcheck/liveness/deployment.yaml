@@ -29,7 +29,7 @@ spec:
             port: 8080             # Port to call
           
           initialDelaySeconds: 5   # Wait before first check
-          periodSeconds: 2        # Check every 10 sec
+          periodSeconds: 2        # Check every 2 sec
           timeoutSeconds: 2        # Fail if no response in 2 sec
           failureThreshold: 3      # Restart container after 3 failures
           successThreshold: 1      # 1 success is enough to mark healthy
